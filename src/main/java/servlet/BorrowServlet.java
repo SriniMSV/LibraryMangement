@@ -89,8 +89,7 @@ public class BorrowServlet extends HttpServlet {
 
         boolean isAdmin = AuthHelper.isAdmin(requesterId);
 
-
-        // 🛡️ Get session and validate user
+        
 //        HttpSession session = req.getSession(false); // Don't create a new session
 //        if (session == null || session.getAttribute("user") == null) {
 //            resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
