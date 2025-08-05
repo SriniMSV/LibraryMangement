@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact name="LibraryManagmentMini:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/LibraryManagmentMini_jar</output-path>
+    <root id="root">
+      <element id="archive" name="LibraryManagmentMini.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/../apache-tomcat-9.0.107/apache-tomcat-9.0.107/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="LibraryManagmentMini" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/../javax.servlet-api-4.0.1.jar" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,47 @@
+<project name="LibraryManagementMini" basedir="." default="war">
+
+    <!-- Properties -->
+    <property name="src.dir" value="src/main/java"/>
+    <property name="build.dir" value="build"/>
+    <property name="web.dir" value="src/main/web"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="war.file" value="LibraryManagementMini.war"/>
+
+    <!-- Clean task -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <!-- Compile Java source code -->
+    <target name="compile">
+        <mkdir dir="${build.dir}/WEB-INF/classes"/>
+        <javac includeantruntime="false" debug="true"
+               srcdir="${src.dir}" destdir="${build.dir}/WEB-INF/classes">
+            <classpath>
+                <fileset dir="${lib.dir}">
+                    <include name="*.jar"/>
+                </fileset>
+            </classpath>
+        </javac>
+    </target>
+
+    <!-- Copy web files and lib jars -->
+    <target name="copy-web">
+        <copy todir="${build.dir}">
+            <fileset dir="${web.dir}"/>
+        </copy>
+
+        <!-- ✅ Copy all jars to WEB-INF/lib -->
+        <mkdir dir="${build.dir}/WEB-INF/lib"/>
+        <copy todir="${build.dir}/WEB-INF/lib">
+            <fileset dir="${lib.dir}" includes="*.jar"/>
+        </copy>
+    </target>
+
+    <!-- Build WAR file -->
+    <target name="war" depends="clean, compile, copy-web">
+        <mkdir dir="dist"/>
+        <jar destfile="dist/${war.file}" basedir="${build.dir}"/>
+    </target>
+
+</project>
